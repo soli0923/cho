@@ -79,7 +79,7 @@
 			});
 			
 			$(".list").click(function() {
-				$form.attr("action", "/board/listall");
+				$form.attr("action", "/board/list");
 				$form.attr("method", "get");
 				$form.submit();
 			});

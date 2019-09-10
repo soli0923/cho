@@ -47,19 +47,27 @@
 			</table>			
 			
 		</div>
-	</div>
-	
-	<c:forEach begin="${to.bpn}" end="${to.spn}" var="i">
-
-
-			<a href="list?page=${i}">
-				<c:if test="${i==to.curPage}">
-					<font color="red" size="5em">${i}</font>
-				</c:if> <c:if test="${i!=to.curPage}">${i}</c:if>
-			</a>&nbsp;
 		
-	</c:forEach>
-	
+		<div class="row text-center">
+			<ul class="pagination">
+				
+				<c:if test="${to.curPage>1}">
+					<li><a href="list?curPage=${to.curPage-1}">&laquo;</a></li>
+				</c:if>
+				
+				<c:forEach begin="${to.bpn}" end="${to.spn}" var="idx">
+					<li class="${to.curPage==idx?'active':''}"><a href="list?curPage=${idx}">${idx}</a></li>
+				</c:forEach>
+				
+				<c:if test="${to.curPage<to.totalPage}">
+					<li><a href="list?curPage=${to.curPage+1}">&raquo;</a></li>
+				</c:if>
+				
+			</ul>
+		</div>
+		
+		
+	</div>
 
 </body>
 </html>

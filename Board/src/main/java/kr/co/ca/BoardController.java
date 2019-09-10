@@ -27,9 +27,9 @@ public class BoardController {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(BoardVO vo) throws Exception {
-		int reNum = bservice.create(vo);
+		bservice.create(vo);
 		
-		return "redirect:/board/listall";
+		return "redirect:/board/list";
 	}
 	
 	@RequestMapping("/listall")
